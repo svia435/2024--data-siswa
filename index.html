@@ -18,12 +18,25 @@
 <form class="mb-3">
   <div class="mb-3">
     <label class="from-label">Nama Siswa</label>
-    <input type="text" class="from-control">
+    <input type="text" class="from-control" id="input-nama">
     </div>
-    <button type="submit" class="btn btn-primary">Simpan</button>
+    <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
 </form>
 
 <a href="siswa.html" class="mt-1">Lihat Daftar Siswa</a>
+
+<script type="module">
+  import { tambahSiswa } from './main.js';
+  
+  let tombolTambah = document.getElementById('tombol-tambah');
+  let elemenNamaSiswa = document.getElementById('input-nama');
+  
+  tombolTambah.addEventListener('click', async function(el) {
+    el.preventDefault();
+    await tambahSiswa(elemenNamaSiswa.value);
+    window.location.href = 'siswa.html';
+  });
+</script>
 </body>
 
 </html>
