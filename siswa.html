@@ -30,12 +30,23 @@ $(document).ready(async function() {
   
   daftarSiswa.forEach((data) => {
     elemenNamaSiswa.append(
-      '<li class="list-group-item">' +
+      '<li class="list-group-item d-flex justify-content-between">' +
+      '<label>' +
       data.nama +
-      '<button class="btn btn-danger tombol-hapus">Hapus</button>'
+      '</label>' +
+     '<div>' +
+      '<button class="btn btn-danger tombol-hapus" data="' +
+      data.id +
+      '">Hapus</button>' +
+      '</div>' +
       '</li>'
     );
   });
+  
+  $('.tombol-hapus').click(async function() {
+    await hapusSiswa($(this).attr('data'));
+    location.reload();
+  })
 });
 </script>
 </body>
