@@ -46,3 +46,7 @@ export async function tambahSiswa(val) {
     console.log('Error manambah dokumen '+ e);
   }
 }
+
+export async function hapusSiswa(docid) {
+  await deleteDoc(doc(db, "siswa"), docId);
+}
